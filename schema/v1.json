@@ -1,0 +1,111 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://500kcalpunch.hokkaidosm.net/data/schema/v1.json",
+    "type": "object",
+    "title": "xカロリーパンチチャレンジ メニューデータ",
+    "description": "「xカロリーパンチチャレンジ」で使用するメニューデータ",
+    "default": {},
+    "examples": [
+        {
+            "$schema": "./schema/v1.json",
+            "date": "2022-01-02",
+            "menus": [
+                {
+                    "name": "肉厚ビーフバーガー ペッパー&チーズ",
+                    "carories": 503
+                }
+            ]
+        }
+    ],
+    "required": [
+        "$schema",
+        "date",
+        "menus"
+    ],
+    "properties": {
+        "$schema": {
+            "$id": "#/properties/%24schema",
+            "type": "string",
+            "title": "スキーマ設定",
+            "description": "スキーマ設定。必ず本ファイルを参照してください",
+            "default": "./schema/v1.json",
+            "examples": [
+                "./schema/v1.json"
+            ]
+        },
+        "date": {
+            "$id": "#/properties/date",
+            "type": "string",
+            "format": "date",
+            "title": "メニュー基準日",
+            "description": "このファイルを作るのに参照したメニューの参照日を入力します",
+            "default": "",
+            "examples": [
+                "2022-01-02"
+            ]
+        },
+        "menus": {
+            "$id": "#/properties/menus",
+            "type": "array",
+            "title": "メニュー",
+            "description": "対象のメニューの配列です",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "name": "肉厚ビーフバーガー ペッパー&チーズ",
+                        "carories": 503
+                    }
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/menus/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/menus/items/anyOf/0",
+                        "type": "object",
+                        "title": "メニューデータ",
+                        "description": "対象のメニューのデータです",
+                        "default": {},
+                        "examples": [
+                            {
+                                "name": "肉厚ビーフバーガー ペッパー&チーズ",
+                                "carories": 503
+                            }
+                        ],
+                        "required": [
+                            "name",
+                            "carories"
+                        ],
+                        "properties": {
+                            "name": {
+                                "$id": "#/properties/menus/items/anyOf/0/properties/name",
+                                "type": "string",
+                                "title": "メニュー名",
+                                "description": "メニュー名を入力します",
+                                "default": "",
+                                "examples": [
+                                    "肉厚ビーフバーガー ペッパー&チーズ"
+                                ]
+                            },
+                            "carories": {
+                                "$id": "#/properties/menus/items/anyOf/0/properties/carories",
+                                "type": "number",
+                                "minimum": 0,
+                                "title": "カロリー",
+                                "description": "主に「エネルギー」欄に記載されているカロリーを「キロカロリー」単位で記載します",
+                                "default": 0,
+                                "examples": [
+                                    503
+                                ]
+                            }
+                        },
+                        "additionalProperties": true
+                    }
+                ]
+            }
+        }
+    },
+    "additionalProperties": true
+}
