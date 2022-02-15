@@ -35,6 +35,7 @@
      * static.json
      * private.json
      * include.json
+     * sitepolicy.json
    * また、ファイル名には「半角英数字」「-」「\_」のみが使用できます
  4.  上の「各メニューのJSONファイルの構造」に従ってJSONファイルを作ります
  5.  【推奨】ルートフォルダで `python ./checker/checker.py` を実行して、JSONチェッカーを走らせます

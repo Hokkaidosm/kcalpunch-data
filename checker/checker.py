@@ -6,7 +6,7 @@ import re
 from jsonschema import validate, ValidationError
 
 # 禁止ファイル
-prohibited_file_names = ["data.json", "schema.json", "misc.json", "static.json", "private.json", "include.json"]
+prohibited_file_names = ["data.json", "schema.json", "misc.json", "static.json", "private.json", "include.json", "sitepolicy.json"]
 # ファイル名パターン
 file_name_pattern = "^[0-9a-zA-Z\-_]+\.json$"
 file_name_p = re.compile(file_name_pattern)
